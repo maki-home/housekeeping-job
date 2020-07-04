@@ -11,6 +11,8 @@ applications:
   - housekeeping-scheduler # cf create-service scheduler-for-pcf standard housekeeping-scheduler
   env:
     JBP_CONFIG_OPEN_JDK_JRE: '{memory_calculator: {stack_threads: 16}, jre: {version: 11.+}}'
+    JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+    SPRING_PROFILES_ACTIVE: cloud
     JAVA_OPTS: -XX:MaxMetaspaceSize=128M -XX:ReservedCodeCacheSize=20M -Xss512k -Duser.timezone=Asia/Tokyo
     SPRING_SENDGRID_APIKEY: ${vcap.services.housekeeping-creds.credentials.sendgridApiKey}
     MISSION_APIURL: ${vcap.services.housekeeping-creds.credentials.apiUrl}
