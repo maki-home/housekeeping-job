@@ -1,9 +1,10 @@
-package am.ik.home.housekeeping;
+package am.ik.home.housekeeping.batch;
 
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
 
+import am.ik.home.housekeeping.Mission;
 import am.ik.home.housekeeping.client.MissionApi;
 import am.ik.home.housekeeping.client.MissionResponse;
 

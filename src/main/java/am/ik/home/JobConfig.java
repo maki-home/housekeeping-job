@@ -3,10 +3,10 @@ package am.ik.home;
 import java.time.Clock;
 
 import am.ik.home.housekeeping.Mission;
-import am.ik.home.housekeeping.MissionItemProcessor;
-import am.ik.home.housekeeping.MissionItemReader;
-import am.ik.home.housekeeping.MissionItemWriter;
 import am.ik.home.housekeeping.MissionProps;
+import am.ik.home.housekeeping.batch.MissionItemProcessor;
+import am.ik.home.housekeeping.batch.MissionItemReader;
+import am.ik.home.housekeeping.batch.MissionItemWriter;
 import am.ik.home.housekeeping.client.ApiClient;
 import am.ik.home.housekeeping.client.MissionApi;
 import am.ik.home.sendgrid.SendGridSender;

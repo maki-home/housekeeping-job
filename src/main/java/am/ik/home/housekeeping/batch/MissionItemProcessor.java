@@ -1,6 +1,8 @@
-package am.ik.home.housekeeping;
+package am.ik.home.housekeeping.batch;
 
 import java.time.Clock;
+
+import am.ik.home.housekeeping.Mission;
 
 import org.springframework.batch.item.ItemProcessor;
 

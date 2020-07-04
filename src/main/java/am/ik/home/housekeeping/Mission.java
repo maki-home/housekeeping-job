@@ -4,11 +4,11 @@ import java.time.Clock;
 import java.time.LocalDate;
 
 public class Mission {
-	final String place;
+	private final String place;
 
-	final LocalDate lastDate;
+	private final LocalDate lastDate;
 
-	final Integer cycle;
+	private final Integer cycle;
 
 	public Mission(String place, LocalDate lastDate, Integer cycle) {
 		this.place = place;
@@ -26,6 +26,10 @@ public class Mission {
 		}
 		final LocalDate now = LocalDate.now(clock);
 		return now.isAfter(this.dueDate());
+	}
+
+	public String getPlace() {
+		return place;
 	}
 
 	@Override
