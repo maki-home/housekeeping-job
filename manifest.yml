@@ -1,0 +1,18 @@
+applications:
+- name: housekeeping-job
+  path: target/housekeeping-job-0.0.1-SNAPSHOT.jar
+  instances: 0
+  memory: 256m
+  no-route: true
+  health-check-type: process
+  services:
+  - housekeeping-job # cf create-service elephantsql turtle housekeeping-job
+  - housekeeping-creds # cf create-service credhub default housekeeping-creds -c credentials.json
+  - housekeeping-scheduler # cf create-service scheduler-for-pcf standard housekeeping-scheduler
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{memory_calculator: {stack_threads: 16}, jre: {version: 11.+}}'
+    JAVA_OPTS: -XX:MaxMetaspaceSize=128M -XX:ReservedCodeCacheSize=20M -Xss512k -Duser.timezone=Asia/Tokyo
+    SPRING_SENDGRID_APIKEY: ${vcap.services.housekeeping-creds.credentials.sendgridApiKey}
+    MISSION_APIURL: ${vcap.services.housekeeping-creds.credentials.apiUrl}
+    MISSION_UIURL: ${vcap.services.housekeeping-creds.credentials.uiUrl}
+    MISSION_MAILTO: ${vcap.services.housekeeping-creds.credentials.mailTo}
