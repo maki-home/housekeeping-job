@@ -9,6 +9,7 @@ applications:
   - housekeeping-job # cf create-service elephantsql turtle housekeeping-job
   - housekeeping-creds # cf create-service credhub default housekeeping-creds -c credentials.json
   - housekeeping-scheduler # cf create-service scheduler-for-pcf standard housekeeping-scheduler
+  - syslog-to-datadog # cf create-user-provided-service syslog-to-datadog -l syslog://example.com:514
   env:
     JBP_CONFIG_OPEN_JDK_JRE: '{memory_calculator: {stack_threads: 16}, jre: {version: 11.+}}'
     JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
