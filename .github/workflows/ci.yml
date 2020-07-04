@@ -24,9 +24,8 @@ jobs:
       run: |
         set -e
         ./mvnw -V package -U -Dmaven.test.skip=true
-    - name: setup cf cli
+    - uses: jvalkeal/setup-cf-cli@v0
       if: github.ref == 'refs/heads/master'
-      uses: jvalkeal/setup-cf-cli@v0
       with:
         version: 6.51.0
     - name: cf push
